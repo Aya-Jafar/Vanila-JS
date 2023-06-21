@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense tracker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="header">
+            <h1>Expense<br>Tracker</h1>
+
+            <br>
+
+            <h2>Your balance</h2>
+            <h2 id="balance" class="balance">$0</h2>
+        </div>
+
+        <div class="expense-income">
+            <div class="expense">Expenses: <span id="expense">$0</span></div>
+            <div class="income">Income: <span id="income">$0</span></div>
+        </div>
+        <br>
+        <div class="history">
+            <h3>Transaction History</h3>
+            <hr />
+            <ul id="history-list">
+            </ul>
+        </div>
+
+        <div class="form">
+            <h3>Add New Transaction</h3>
+            <hr />
+            <!-- <form> -->
+            <div class="form-group">
+                <label for="text-input">Text</label>
+                <input
+                type="text"
+                class="form-control"
+                id="text-input"
+                placeholder="Enter a text..."
+                />
+            </div>
+            <div class="form-group">
+                <label for="amount-input">Amount</label>
+                <br>
+                <label>(negative-expense , positive-income)</label>
+                <input
+                type="text"
+                class="form-control"
+                id="amount-input"
+                placeholder="Enter amount..."
+                />
+            </div>
+            <br>
+            <button id="add" class="btn btn-primary">Add Transaction</button>
+            <!-- </form> -->
+        </div>
+    </div>
+
+    <script>
+        const textInput = document.getElementById("text-input");
+        const amountInput = document.getElementById("amount-input");
+        const historyList = document.getElementById("history-list");
+        const btn = document.getElementById("add");
+
+        const income = document.getElementById("income");
+        const expense = document.getElementById("expense");
+
+        let finalIncome = 0;
+        let finalExpense = 0;
+
+        btn.addEventListener("click", () => {
+            const newItem = document.createElement("li");
+            newItem.innerHTML = `${textInput.value}<span>${amountInput.value}</span>`;
+            
+            historyList.appendChild(newItem);
+
+            if (amountInput.value[0] == "-") {
+                newItem.classList.add('expense-item');
+                finalExpense -= parseInt(amountInput.value);
+            } else if (amountInput.value[0] == "+" || amountInput.value[0] != "-") {
+                newItem.classList.add('income-item');
+                finalIncome += parseInt(amountInput.value);
+            }
+            income.innerText = `$${finalIncome}`;
+            expense.innerText = `$${finalExpense}`;
+            
+
+            const balance = finalIncome - Math.abs(finalExpense);
+            document.getElementById("balance").textContent = `$${balance}`;
+
+            textInput.value = '';
+            amountInput.value = '';
+        });
+    </script>
+</body>
+</html>
