@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+   background: linear-gradient(
+    to bottom right, 
+    #020033,
+    #01054a,
+    #002b6d,
+    #004189,
+    #0065b3,
+    #0088de,
+    #00baff,
+    #27fff5
+  );
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 3em;
+  margin: 0 0 20px;
+}
+
+.card {
+  background-color: #292c31;
+  border-radius: 15px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1) inset;
+  color: white;
+  padding: 10px 16px;
+  margin-right: 10px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+option {
+  background-color: #282828;
+  color: white;
+}
+/* form,
+.form-control-lg {
+  width: 70%;
+} */
+.form-control-lg {
+  margin-bottom: 20px;
+  color: white;
+  background-color: #1e2126;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+#input{
+  width: 300px !important;
+  height: 100px;
+}
+
+.btn-primary {
+  background-color: #50b5ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #01b6f3;
+}
+
+#speek-btn:hover {
+  background-color: rgb(0, 123, 255);
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.4) inset,
+    0px 15px 30px rgba(255, 255, 255, 0.3);
+}
+
+#speek-btn {
+  font-size: 1.2rem;
+  border: 0;
+  border-radius: 50px;
+  padding: 10px 30px;
+  background-color: #01b6f3;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3) inset,
+    0px 10px 20px rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+
+/* Small screens (less than 768px) */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 25px;
+  }
+
+  #input {
+    width: initial !important;
+  }
+}
+
+/* Medium screens (between 768px and 992px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 700px;
+    padding: 40px;
+  }
+}
+
+/* Large screens (more than 992px) */
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 800px;
+    padding: 50px;
+  }
+}
